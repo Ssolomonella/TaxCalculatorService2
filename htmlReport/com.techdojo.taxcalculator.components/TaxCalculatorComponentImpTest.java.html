@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaxCalculatorComponentImpTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TaxCalculatorComponentImpTest Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.techdojo.taxcalculator.components</a> &gt; <span class="el_source">TaxCalculatorComponentImpTest.java</span></div><h1>TaxCalculatorComponentImpTest.java</h1><pre class="source lang-java linenums">package com.techdojo.taxcalculator.components;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+@SpringBootTest
+<span class="fc" id="L10">public class TaxCalculatorComponentImpTest {</span>
+@Autowired
+    TaxCalculator taxCalculator;
+
+    /*
+     *  Tax brackets
+     * Tax bracket A(0 to 14k) = 10.5%
+     * Tax bracket B($14,001 to $48,000) = 17.50%
+     * Tax bracket C($48,001 to $70,000) = 30.00%
+     * Tax bracket D($70,001 to $180,000) = 33.00%
+     * Tax bracket E($180,000+) = 39.00%
+     * */
+
+    @Test
+    void taxBracketAisAppliedWhenIncomeIsBellow14k() {
+<span class="fc" id="L25">        double income = 14000.00;</span>
+<span class="fc" id="L26">        double actualTaxToPay = taxCalculator.calculateTax(income);</span>
+<span class="fc" id="L27">        double expectedTaxToPay = income * (10.5 / 100);</span>
+<span class="fc" id="L28">        Assertions.assertEquals(expectedTaxToPay,actualTaxToPay,&quot;Amount is not as expected &quot;);</span>
+<span class="fc" id="L29">    }</span>
+    @Test
+    void taxBracketBisAppliedWhenIncomeIsBellow14k() {
+<span class="fc" id="L32">        double income = 14001.00;</span>
+<span class="fc" id="L33">        double actualTaxToPay = taxCalculator.calculateTax(income);</span>
+<span class="fc" id="L34">        double expectedTaxToPay = income * (17.5 / 100);</span>
+<span class="fc" id="L35">        Assertions.assertEquals(expectedTaxToPay,actualTaxToPay,&quot;Amount is not as expected &quot;);</span>
+
+<span class="fc" id="L37">    }</span>
+    @Test
+    void taxBracketCisAppliedWhenIncomeIsBellow14k() {
+<span class="fc" id="L40">        double income = 48001.00;</span>
+<span class="fc" id="L41">        double actualTaxToPay = taxCalculator.calculateTax(income);</span>
+<span class="fc" id="L42">        double expectedTaxToPay = income * (30.0 / 100);</span>
+<span class="fc" id="L43">        Assertions.assertEquals(expectedTaxToPay,actualTaxToPay,&quot;Amount is not as expected &quot;);</span>
+<span class="fc" id="L44">    }</span>
+    @Test
+    void taxBracketDisAppliedWhenIncomeIsBellow14k() {
+<span class="fc" id="L47">        double income = 70001.00;</span>
+<span class="fc" id="L48">        double actualTaxToPay = taxCalculator.calculateTax(income);</span>
+<span class="fc" id="L49">        double expectedTaxToPay = income * (33.0 / 100);</span>
+<span class="fc" id="L50">        Assertions.assertEquals(expectedTaxToPay,actualTaxToPay,&quot;Amount is not as expected &quot;);</span>
+<span class="fc" id="L51">    }</span>
+    @Test
+    void taxBracketEisAppliedWhenIncomeIsBellow14k() {
+<span class="fc" id="L54">        double income = 180001.00;</span>
+<span class="fc" id="L55">        double actualTaxToPay = taxCalculator.calculateTax(income);</span>
+<span class="fc" id="L56">        double expectedTaxToPay = income * (39.0 / 100);</span>
+<span class="fc" id="L57">        Assertions.assertEquals(expectedTaxToPay,actualTaxToPay,&quot;Amount is not as expected &quot;);</span>
+<span class="fc" id="L58">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

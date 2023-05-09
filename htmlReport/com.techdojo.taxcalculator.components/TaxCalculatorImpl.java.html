@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaxCalculatorImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TaxCalculatorComponentImpTest Coverage Results</a> &gt; <a href="index.source.html" class="el_package">com.techdojo.taxcalculator.components</a> &gt; <span class="el_source">TaxCalculatorImpl.java</span></div><h1>TaxCalculatorImpl.java</h1><pre class="source lang-java linenums">package com.techdojo.taxcalculator.components;
+
+import org.springframework.stereotype.Component;
+
+@Component
+<span class="fc" id="L6">public class TaxCalculatorImpl implements TaxCalculator {</span>
+    @Override
+    public double calculateTax(double income) {
+<span class="pc bpc" id="L9" title="1 of 4 branches missed.">        if (income&gt;180000 &amp;&amp; income&lt;=200000){</span>
+<span class="fc" id="L10">            return income * (39.0/100);</span>
+        }
+<span class="pc bpc" id="L12" title="1 of 4 branches missed.">        if (income&gt;70000 &amp;&amp; income&lt;=180000){</span>
+<span class="fc" id="L13">            return income * (33.0/100);</span>
+        }
+<span class="pc bpc" id="L15" title="1 of 4 branches missed.">        if (income&gt;48000 &amp;&amp; income&lt;=70000){</span>
+<span class="fc" id="L16">            return income * (30.0/100);</span>
+        }
+<span class="pc bpc" id="L18" title="1 of 4 branches missed.">        if (income&gt;14000 &amp;&amp; income&lt;=48000){</span>
+<span class="fc" id="L19">            return income * (17.5/100);</span>
+        }
+<span class="fc" id="L21">        return income * (10.5/100);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
